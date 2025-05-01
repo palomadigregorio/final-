@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Chapter 6</title>
+		<link rel="stylesheet" href="./assets/css/styles.css">
+<style>
+	html {
+		width: 100%;
+		height: 100%;
+	}
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2rem;
+	grid-template-columns; repeat (auto-fit, minimax(320px, 1fr));
+}
+body {
+	margin: 1rem;
+background-color: black;
+background: url("Assets/img/hattersmiling.gif"); 
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+color: whitesmoke;
+font-size: 5rem;
+overflow: hidden;
+
+}
+.last {
+	padding-bottom: 2rem;
+	border-bottom: 2px solid rgb(220, 200, 180);
+	margin: 15% 4rem 0 4rem;
+}
+body {
+	transition-property: transform;
+	transition-duration: 3s;
+}
+div {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color:rgb(56, 190, 252);
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="grid-container">
+	<div>What</div>
+	<div>loses</div>
+	<div>its</div>
+	<div>head</div>
+	<div>in</div>
+	<div>the</div>
+	<div>morning</div>
+	<div>but</div>
+	<div>gets</div>
+	<div>it--</div>
+	<div>back</div>
+	<div>at</div>
+	<div>night</div>
+	<div>??</div>
+	<div><a href="page8.html" target="_self">??.</a></div>
+
+</div>
+
+	<script src="./assets/js/main.js"></script>
+
+	<script>
+//		document.body.style.transform = `rotate(90deg)`;
+function randomNumber(min, max) {
+	return (Math.random() * (max-min)) + min;	
+	}
+//define divs variable
+let divs= document.querySelectorAll(".grid-container div");
+
+function randomize() {
+//apply only to each of the div tags
+divs.forEach(function (div) {
+	let scale = randomNumber(.5, 1.2);
+	let translateX = randomNumber(0, 50);
+	let translateY = randomNumber(0, 20);
+	let rotate = randomNumber(0,360);
+
+	//half of the time do this...
+	if (Math.random()>.5){
+		scale = 1; //don't affect scale
+		translateX = randomNumber(0, 80);
+		translateY = randomNumber(0,80);
+	}
+	div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
+});
+}
+document.addEventListener("click", randomize);
+//		let rotation = 0;
+//		document.addEventListener("click", function () {
+//			let min= 10;
+//			let max= 40;
+//			rotation += Math.random() * (max - min) + min;
+//			document.body.style.transform = `rotate(${rotation}deg)`;
+//		});
+	</script>
+</body>
+</html>
